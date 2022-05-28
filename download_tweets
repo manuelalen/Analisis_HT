@@ -1,0 +1,17 @@
+library(rtweet)
+library(xlsx)
+library(openxlsx)
+library(writexl)
+consulta = "#PlataformaPorLaPaz"
+
+
+tweets_Paz <- search_tweets(consulta,
+              n = 30000,
+              include_rts = FALSE,
+              retryonratelimit = TRUE)
+
+view(tweets_Paz)
+
+tweets_df<-data.frame(tweets_Paz)
+
+write_xlsx(tweets_df, "C:/Users/usuario/Documentos/tweets1.xlsx")
